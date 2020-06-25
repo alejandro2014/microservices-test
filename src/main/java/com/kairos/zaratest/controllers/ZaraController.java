@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 public class ZaraController {
-    @GetMapping(value = "/")
-    public ResponseEntity<PriceInformationResponse> getHola(
+    @GetMapping(value = "/priceinfo")
+    public ResponseEntity<PriceInformationResponse> getPriceInformation(
             HttpServletRequest httpRequest,
             String date,
             String productId,
