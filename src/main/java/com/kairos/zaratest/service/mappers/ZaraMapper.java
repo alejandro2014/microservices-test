@@ -6,10 +6,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ZaraTestMapper {
+public class ZaraMapper {
     private ModelMapper modelMapper;
 
-    public ZaraTestMapper() {
+    public ZaraMapper() {
         this.modelMapper = new ModelMapper();
     }
 
