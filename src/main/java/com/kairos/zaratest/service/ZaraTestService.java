@@ -17,11 +17,9 @@ public class ZaraTestService {
         this.zaraTestRepository = zaraTestRepository;
     }
 
-    public PriceInformationResponse getPriceInformation() {
+    public PriceInfo getPriceInformation() {
         List<PriceInfo> all = (List<PriceInfo>) zaraTestRepository.findAll();
 
-        System.out.println(all);
-
-        return null;
+        return all.get(0);
     }
 }

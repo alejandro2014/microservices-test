@@ -1,6 +1,7 @@
 package com.kairos.zaratest.controllers;
 
 import com.kairos.zaratest.domain.PriceInformationResponse;
+import com.kairos.zaratest.model.PriceInfo;
 import com.kairos.zaratest.service.ZaraTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,12 +21,12 @@ public class ZaraController {
     }
 
     @GetMapping(value = "/priceinfo")
-    public ResponseEntity<PriceInformationResponse> getPriceInformation(
+    public ResponseEntity<PriceInfo> getPriceInformation(
             HttpServletRequest httpRequest,
             String date,
             String productId,
             String stringId) {
-        PriceInformationResponse response = zaraTestService.getPriceInformation();
+        PriceInfo response = zaraTestService.getPriceInformation();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
