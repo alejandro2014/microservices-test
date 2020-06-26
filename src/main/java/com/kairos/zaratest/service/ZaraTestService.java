@@ -18,8 +18,8 @@ public class ZaraTestService {
     }
 
     public PriceInfo getPriceInformation(String date, String productId, String stringId) {
-        PriceInfo all = zaraTestRepository.findByProductIdAndStartDateGreaterThanAndEndDateLessThanEqual(productId, date, date);
+        List<PriceInfo> all = (List<PriceInfo>) zaraTestRepository.findByProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, date, date);
 
-        return all;
+        return all.get(0);
     }
 }
