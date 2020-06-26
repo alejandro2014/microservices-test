@@ -1,6 +1,7 @@
 package com.kairos.zaratest.model;
 
 import lombok.Data;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +12,8 @@ import javax.persistence.Table;
 @Table(name = "PRICES")
 @Data
 public class PriceInfo {
-
     @Id
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "BRAND_ID")
