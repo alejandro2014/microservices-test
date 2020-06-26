@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ZaraTestService {
+public class ZaraService {
     private ZaraTestRepository zaraTestRepository;
     private ZaraTestMapper zaraTestMapper;
 
     @Autowired
-    public ZaraTestService(ZaraTestRepository zaraTestRepository, ZaraTestMapper zaraTestMapper) {
+    public ZaraService(ZaraTestRepository zaraTestRepository, ZaraTestMapper zaraTestMapper) {
         this.zaraTestRepository = zaraTestRepository;
         this.zaraTestMapper = zaraTestMapper;
     }
