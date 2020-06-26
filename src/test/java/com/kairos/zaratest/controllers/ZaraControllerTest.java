@@ -18,7 +18,7 @@ public class ZaraControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void getPriceInformation_returnsCorrectData() throws Exception {
+    public void getPriceInformation_returnsCorrectData_test1() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
                         .param("date", "2020-06-14-00.00.00")
@@ -29,11 +29,51 @@ public class ZaraControllerTest {
                 .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
     }
 
-    /*
-        a. Test 1: petición a las 10:00 del día 14 del producto 35455 para la brand 1 (ZARA)
-        b. Test 2: petición a las 16:00 del día 14 del producto 35455 para la brand 1 (ZARA)
-        c. Test 3: petición a las 21:00 del día 14 del producto 35455 para la brand 1 (ZARA)
-        d. Test 4: petición a las 10:00 del día 15 del producto 35455 para la brand 1 (ZARA)
-        e. Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)
-     */
+    @Test
+    public void getPriceInformation_returnsCorrectData_test2() throws Exception {
+        mockMvc.perform(
+                get("/priceinfo")
+                        .param("date", "2020-06-14-16.00.00")
+                        .param("productId", "35455")
+                        .param("brandId", "1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+    }
+
+    @Test
+    public void getPriceInformation_returnsCorrectData_test3() throws Exception {
+        mockMvc.perform(
+                get("/priceinfo")
+                        .param("date", "2020-06-14-21.00.00")
+                        .param("productId", "35455")
+                        .param("brandId", "1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+    }
+
+    @Test
+    public void getPriceInformation_returnsCorrectData_test4() throws Exception {
+        mockMvc.perform(
+                get("/priceinfo")
+                        .param("date", "2020-06-15-10.00.00")
+                        .param("productId", "35455")
+                        .param("brandId", "1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+    }
+
+    @Test
+    public void getPriceInformation_returnsCorrectData_test5() throws Exception {
+        mockMvc.perform(
+                get("/priceinfo")
+                        .param("date", "2020-06-14-21.00.00")
+                        .param("productId", "35455")
+                        .param("brandId", "1"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+    }
 }
