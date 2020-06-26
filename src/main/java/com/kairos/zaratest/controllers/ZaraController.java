@@ -23,12 +23,12 @@ public class ZaraController {
     }
 
     @GetMapping(value = "/priceinfo")
-    public ResponseEntity<PriceInfo> getPriceInformation(
+    public ResponseEntity<PriceInformationResponse> getPriceInformation(
             HttpServletRequest httpRequest,
             @RequestParam String date,
             @RequestParam String productId,
             @RequestParam String stringId) {
-        PriceInfo response = zaraTestService.getPriceInformation(date, productId, stringId);
+        PriceInformationResponse response = zaraTestService.getPriceInformation(date, productId, stringId);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
