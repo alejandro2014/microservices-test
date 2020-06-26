@@ -5,6 +5,7 @@ import com.kairos.zaratest.model.PriceInfo;
 import com.kairos.zaratest.repository.ZaraTestRepository;
 import com.kairos.zaratest.service.mappers.ZaraTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

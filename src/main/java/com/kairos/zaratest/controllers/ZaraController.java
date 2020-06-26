@@ -18,12 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Validated
 public class ZaraController {
-    private ZaraService zaraService;
-
     @Autowired
-    public ZaraController(ZaraService zaraService) {
-        this.zaraService = zaraService;
-    }
+    private ZaraService zaraService;
 
     @GetMapping(value = "/priceinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PriceInformationResponse> getPriceInformation(

@@ -1,42 +1,24 @@
 package com.kairos.zaratest.controllers;
 
-import com.kairos.zaratest.domain.PriceInformationResponse;
-import com.kairos.zaratest.service.ZaraService;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@SpringBootTest
+@AutoConfigureMockMvc
 public class ZaraControllerTest {
-    @Mock
-    private ZaraService zaraService;
-
-    @InjectMocks
-    private ZaraController zaraController;
-
+    @Autowired
     private MockMvc mockMvc;
-
-    @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(zaraController).build();
-    }
 
     @Test
     public void getPriceInformation_returnsCorrectData() throws Exception {
-        //var priceInformationResponse = new PriceInformationResponse();
-
-        //when(zaraService.getPriceInformation(anyString(), anyString(), anyInt())).thenReturn(priceInformationResponse);
-
         mockMvc.perform(
                 get("/priceinfo")
                         .param("date", "2020-06-14-00.00.00")
@@ -44,7 +26,7 @@ public class ZaraControllerTest {
                         .param("brandId", "1"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'message':'ok'}"));
+                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
     }
 
     /*
