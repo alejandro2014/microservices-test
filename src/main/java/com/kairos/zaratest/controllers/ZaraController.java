@@ -27,8 +27,8 @@ public class ZaraController {
             HttpServletRequest httpRequest,
             @RequestParam String date,
             @RequestParam String productId,
-            @RequestParam String stringId) {
-        PriceInformationResponse response = zaraTestService.getPriceInformation(date, productId, stringId);
+            @RequestParam Integer brandId) {
+        PriceInformationResponse response = zaraTestService.getPriceInformation(date, productId, brandId);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

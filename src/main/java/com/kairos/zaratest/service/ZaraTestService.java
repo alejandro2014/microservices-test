@@ -20,11 +20,11 @@ public class ZaraTestService {
         this.zaraTestMapper = zaraTestMapper;
     }
 
-    public PriceInformationResponse getPriceInformation(String date, String productId, String stringId) {
-        List<PriceInfo> all = (List<PriceInfo>) zaraTestRepository.findByProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, date, date);
+    public PriceInformationResponse getPriceInformation(String date, String productId, Integer brandId) {
+        List<PriceInfo> all = (List<PriceInfo>) zaraTestRepository.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, date, date);
 
         PriceInfo first = all.get(0);
 
-        return zaraTestMapper.entityToPriceInformationResponse(first, stringId);
+        return zaraTestMapper.entityToPriceInformationResponse(first);
     }
 }

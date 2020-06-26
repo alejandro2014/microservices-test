@@ -13,10 +13,7 @@ public class ZaraTestMapper {
         this.modelMapper = new ModelMapper();
     }
 
-    public PriceInformationResponse entityToPriceInformationResponse(PriceInfo entity, String stringId) {
-        PriceInformationResponse result = modelMapper.map(entity, PriceInformationResponse.class);
-        result.setStringId(stringId);
-
-        return result;
+    public PriceInformationResponse entityToPriceInformationResponse(PriceInfo entity) {
+        return modelMapper.map(entity, PriceInformationResponse.class);
     }
 }
