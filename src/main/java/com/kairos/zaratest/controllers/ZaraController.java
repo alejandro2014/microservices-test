@@ -28,7 +28,7 @@ public class ZaraController {
             @RequestParam String date,
             @RequestParam String productId,
             @RequestParam String stringId) {
-        PriceInfo response = zaraTestService.getPriceInformation();
+        PriceInfo response = zaraTestService.getPriceInformation(date, productId, stringId);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

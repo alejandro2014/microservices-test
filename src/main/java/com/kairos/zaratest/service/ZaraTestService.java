@@ -17,9 +17,9 @@ public class ZaraTestService {
         this.zaraTestRepository = zaraTestRepository;
     }
 
-    public PriceInfo getPriceInformation() {
-        List<PriceInfo> all = (List<PriceInfo>) zaraTestRepository.findAll();
+    public PriceInfo getPriceInformation(String date, String productId, String stringId) {
+        PriceInfo all = zaraTestRepository.findByProductIdAndStartDateGreaterThanAndEndDateLessThanEqual(productId, date, date);
 
-        return all.get(0);
+        return all;
     }
 }

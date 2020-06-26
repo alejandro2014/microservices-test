@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ZaraTestRepository extends CrudRepository<PriceInfo, Integer> {
     Iterable<PriceInfo> findAll();
+    PriceInfo findByProductIdAndStartDateGreaterThanAndEndDateLessThanEqual(String productId, String date1, String date2);
 }
