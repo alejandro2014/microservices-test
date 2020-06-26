@@ -4,12 +4,16 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PRICES")
 @Data
 public class PriceInfo {
+
+    @Id
+    private Long id;
 
     @Column(name = "BRAND_ID")
     private Integer brandId;
