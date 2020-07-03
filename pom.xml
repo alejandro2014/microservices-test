@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kairos</groupId>
-	<artifactId>zara-test</artifactId>
+	<artifactId>technical-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>zara-test</name>
-	<description>Zara technical test</description>
+	<name>technical-test</name>
+	<description>Microservices technical test</description>
 
 	<properties>
 		<java.version>11</java.version>

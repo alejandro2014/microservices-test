@@ -1,4 +1,4 @@
-package com.kairos.zaratest.domain;
+package com.kairos.techincaltest.domain;
 
 import lombok.Data;
 

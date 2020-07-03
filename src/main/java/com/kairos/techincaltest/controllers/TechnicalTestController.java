@@ -1,7 +1,7 @@
-package com.kairos.zaratest.controllers;
+package com.kairos.techincaltest.controllers;
 
-import com.kairos.zaratest.domain.PriceInformationResponse;
-import com.kairos.zaratest.service.ZaraService;
+import com.kairos.techincaltest.domain.PriceInformationResponse;
+import com.kairos.techincaltest.service.TechnicalTestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @Slf4j
 @Validated
-public class ZaraController {
+public class TechnicalTestController {
     @Autowired
-    private ZaraService zaraService;
+    private TechnicalTestService technicalTestService;
 
     @GetMapping(value = "/priceinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PriceInformationResponse> getPriceInformation(
@@ -27,7 +27,7 @@ public class ZaraController {
             @RequestParam String date,
             @RequestParam String productId,
             @RequestParam Integer brandId) {
-        PriceInformationResponse response = zaraService.getPriceInformation(date, productId, brandId);
+        PriceInformationResponse response = technicalTestService.getPriceInformation(date, productId, brandId);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

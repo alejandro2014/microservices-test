@@ -1,7 +1,6 @@
-package com.kairos.zaratest.model;
+package com.kairos.techincaltest.model;
 
 import lombok.Data;
-import org.springframework.context.annotation.Primary;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

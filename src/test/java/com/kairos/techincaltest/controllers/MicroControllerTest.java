@@ -1,4 +1,4 @@
-package com.kairos.zaratest.controllers;
+package com.kairos.techincaltest.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ZaraControllerTest {
+public class MicroControllerTest {
     @Autowired
     private MockMvc mockMvc;
 

@@ -1,15 +1,15 @@
-package com.kairos.zaratest.service.mappers;
+package com.kairos.techincaltest.service.mappers;
 
-import com.kairos.zaratest.domain.PriceInformationResponse;
-import com.kairos.zaratest.model.PriceInfo;
+import com.kairos.techincaltest.domain.PriceInformationResponse;
+import com.kairos.techincaltest.model.PriceInfo;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ZaraMapper {
+public class TechnicalTestMapper {
     private ModelMapper modelMapper;
 
-    public ZaraMapper() {
+    public TechnicalTestMapper() {
         this.modelMapper = new ModelMapper();
     }
 

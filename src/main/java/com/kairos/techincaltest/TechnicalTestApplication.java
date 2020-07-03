@@ -1,13 +1,13 @@
-package com.kairos.zaratest;
+package com.kairos.techincaltest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ZaraTestApplication {
+public class TechnicalTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ZaraTestApplication.class, args);
+		SpringApplication.run(TechnicalTestApplication.class, args);
 	}
 
 }
