@@ -7,9 +7,6 @@ import com.kairos.techincaltest.service.mappers.TechnicalTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class TechnicalTestService {
     private TechnicalTestRepository technicalTestRepository;
