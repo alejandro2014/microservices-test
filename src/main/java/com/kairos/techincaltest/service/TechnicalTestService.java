@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TechnicalTestService {
@@ -21,10 +22,12 @@ public class TechnicalTestService {
     }
 
     public PriceInformationResponse getPriceInformation(String date, String productId, Integer brandId) {
-        List<PriceInfo> all = (List<PriceInfo>) technicalTestRepository.findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, date, date);
+        PriceInfo priceInfo = technicalTestRepository
+                .findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, date, date)
+                .stream()
+                .findAny()
+                .orElseGet(PriceInfo::new);
 
-        PriceInfo first = all.get(0);
-
-        return technicalTestMapper.entityToPriceInformationResponse(first);
+        return technicalTestMapper.entityToPriceInformationResponse(priceInfo);
     }
 }
