@@ -21,7 +21,7 @@ public class MicroControllerTest {
     public void getPriceInformation_returnsCorrectData_test1() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("date", "2020-06-14-00.00.00")
+                        .param("searchDate", "2020-06-14-00.00.00")
                         .param("productId", "35455")
                         .param("brandId", "1"))
                 .andDo(print())
@@ -33,7 +33,7 @@ public class MicroControllerTest {
     public void getPriceInformation_returnsCorrectData_test2() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("date", "2020-06-14-16.00.00")
+                        .param("searchDate", "2020-06-14-16.00.00")
                         .param("productId", "35455")
                         .param("brandId", "1"))
                 .andDo(print())
@@ -45,7 +45,7 @@ public class MicroControllerTest {
     public void getPriceInformation_returnsCorrectData_test3() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("date", "2020-06-14-21.00.00")
+                        .param("searchDate", "2020-06-14-21.00.00")
                         .param("productId", "35455")
                         .param("brandId", "1"))
                 .andDo(print())
@@ -57,7 +57,7 @@ public class MicroControllerTest {
     public void getPriceInformation_returnsCorrectData_test4() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("date", "2020-06-15-10.00.00")
+                        .param("searchDate", "2020-06-15-10.00.00")
                         .param("productId", "35455")
                         .param("brandId", "1"))
                 .andDo(print())
@@ -69,7 +69,7 @@ public class MicroControllerTest {
     public void getPriceInformation_returnsCorrectData_test5() throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("date", "2020-06-14-21.00.00")
+                        .param("searchDate", "2020-06-14-21.00.00")
                         .param("productId", "35455")
                         .param("brandId", "1"))
                 .andDo(print())

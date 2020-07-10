@@ -24,10 +24,14 @@ public class TechnicalTestController {
     @GetMapping(value = "/priceinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PriceInformationResponse> getPriceInformation(
             HttpServletRequest httpRequest,
-            @RequestParam String date,
+            @RequestParam String searchDate,
             @RequestParam String productId,
             @RequestParam Integer brandId) {
-        PriceInformationResponse response = technicalTestService.getPriceInformation(date, productId, brandId);
+        PriceInformationResponse response = technicalTestService.getPriceInformation(searchDate, productId, brandId);
+
+        if(response == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

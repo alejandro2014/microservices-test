@@ -1,13 +1,10 @@
 package com.kairos.techincaltest.service;
 
 import com.kairos.techincaltest.domain.PriceInformationResponse;
-import com.kairos.techincaltest.model.PriceInfo;
 import com.kairos.techincaltest.repositories.TechnicalTestRepository;
 import com.kairos.techincaltest.service.mappers.TechnicalTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class TechnicalTestService {
