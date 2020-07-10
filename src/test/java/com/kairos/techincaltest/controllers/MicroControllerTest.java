@@ -47,6 +47,17 @@ public class MicroControllerTest {
         performGet("2020-06-14-21.00.00", "35455", "1", jsonResponse);
     }
 
+    @Test
+    public void getPriceInformation_returnsNotFound() throws Exception {
+        mockMvc.perform(
+                get("/priceinfo")
+                        .param("searchDate", "2020-06-14-21.00.00")
+                        .param("productId", "85455")
+                        .param("brandId", "8"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
     private void performGet(String searchDate, String productId, String brandId, String jsonResponse) throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
