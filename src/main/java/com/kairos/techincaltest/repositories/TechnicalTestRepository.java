@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface TechnicalTestRepository extends CrudRepository<PriceInfo, Integer> {
-    List<PriceInfo> findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(String productId, Integer brandId, String date1, String date2);
+    List<PriceInfo> findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(String productId, Integer brandId, String dateFrom, String dateTo);
 }
