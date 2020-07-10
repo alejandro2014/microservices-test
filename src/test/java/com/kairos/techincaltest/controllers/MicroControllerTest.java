@@ -19,61 +19,42 @@ public class MicroControllerTest {
 
     @Test
     public void getPriceInformation_returnsCorrectData_test1() throws Exception {
-        mockMvc.perform(
-                get("/priceinfo")
-                        .param("searchDate", "2020-06-14-00.00.00")
-                        .param("productId", "35455")
-                        .param("brandId", "1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+        String jsonResponse = "{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}";
+        performGet("2020-06-14-00.00.00", "35455", "1", jsonResponse);
     }
 
     @Test
     public void getPriceInformation_returnsCorrectData_test2() throws Exception {
-        mockMvc.perform(
-                get("/priceinfo")
-                        .param("searchDate", "2020-06-14-16.00.00")
-                        .param("productId", "35455")
-                        .param("brandId", "1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+        String jsonResponse = "{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}";
+        performGet("2020-06-14-16.00.00", "35455", "1", jsonResponse);
     }
 
     @Test
     public void getPriceInformation_returnsCorrectData_test3() throws Exception {
-        mockMvc.perform(
-                get("/priceinfo")
-                        .param("searchDate", "2020-06-14-21.00.00")
-                        .param("productId", "35455")
-                        .param("brandId", "1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+        String jsonResponse = "{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}";
+        performGet("2020-06-14-21.00.00", "35455", "1", jsonResponse);
     }
 
     @Test
     public void getPriceInformation_returnsCorrectData_test4() throws Exception {
-        mockMvc.perform(
-                get("/priceinfo")
-                        .param("searchDate", "2020-06-15-10.00.00")
-                        .param("productId", "35455")
-                        .param("brandId", "1"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+        String jsonResponse = "{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}";
+        performGet("2020-06-15-10.00.00", "35455", "1", jsonResponse);
     }
 
     @Test
     public void getPriceInformation_returnsCorrectData_test5() throws Exception {
+        String jsonResponse = "{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}";
+        performGet("2020-06-14-21.00.00", "35455", "1", jsonResponse);
+    }
+
+    private void performGet(String searchDate, String productId, String brandId, String jsonResponse) throws Exception {
         mockMvc.perform(
                 get("/priceinfo")
-                        .param("searchDate", "2020-06-14-21.00.00")
-                        .param("productId", "35455")
-                        .param("brandId", "1"))
+                        .param("searchDate", searchDate)
+                        .param("productId", productId)
+                        .param("brandId", brandId))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'productId':'35455','brandId':'1','priceList':1,'startDate':'2020-06-14-00.00.00','endDate':'2020-12-31-23.59.59'}"));
+                .andExpect(content().json(jsonResponse));
     }
 }
