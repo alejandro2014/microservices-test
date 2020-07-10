@@ -26,12 +26,11 @@ public class TechnicalTestController {
     @GetMapping(value = "/priceinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<PriceInformationResponse> getPriceInformation(
-            HttpServletRequest httpRequest,
             @RequestParam String searchDate,
             @RequestParam String productId,
             @RequestParam Integer brandId) {
         return Optional.ofNullable(technicalTestService.getPriceInformation(searchDate, productId, brandId))
-                .map(response -> ResponseEntity.ok().body(response))
+                .map(priceInfo -> ResponseEntity.ok().body(priceInfo))
                 .orElse(ResponseEntity.notFound().build());
     }
 }
