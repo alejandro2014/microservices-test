@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @RestController
 @Slf4j
@@ -22,17 +24,14 @@ public class TechnicalTestController {
     private TechnicalTestService technicalTestService;
 
     @GetMapping(value = "/priceinfo", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<PriceInformationResponse> getPriceInformation(
             HttpServletRequest httpRequest,
             @RequestParam String searchDate,
             @RequestParam String productId,
             @RequestParam Integer brandId) {
-        PriceInformationResponse response = technicalTestService.getPriceInformation(searchDate, productId, brandId);
-
-        if(response == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return Optional.ofNullable(technicalTestService.getPriceInformation(searchDate, productId, brandId))
+                .map(response -> ResponseEntity.ok().body(response))
+                .orElse(ResponseEntity.notFound().build());
     }
 }
