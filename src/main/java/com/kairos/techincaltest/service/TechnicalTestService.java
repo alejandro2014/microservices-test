@@ -7,6 +7,8 @@ import com.kairos.techincaltest.service.mappers.TechnicalTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class TechnicalTestService {
     private TechnicalTestRepository technicalTestRepository;
@@ -19,12 +21,11 @@ public class TechnicalTestService {
     }
 
     public PriceInformationResponse getPriceInformation(String date, String productId, Integer brandId) {
-        PriceInfo priceInfo = technicalTestRepository
+        return technicalTestRepository
                 .findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, date, date)
                 .stream()
                 .findAny()
-                .orElseGet(PriceInfo::new);
-
-        return technicalTestMapper.entityToPriceInformationResponse(priceInfo);
+                .map(info -> technicalTestMapper.entityToPriceInformationResponse(info))
+                .orElse(null);
     }
 }
