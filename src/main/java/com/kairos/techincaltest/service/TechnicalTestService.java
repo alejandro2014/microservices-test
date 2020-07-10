@@ -17,9 +17,9 @@ public class TechnicalTestService {
         this.technicalTestMapper = technicalTestMapper;
     }
 
-    public PriceInformationResponse getPriceInformation(String date, String productId, Integer brandId) {
+    public PriceInformationResponse getPriceInformation(String searchDate, String productId, Integer brandId) {
         return technicalTestRepository
-                .findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, date, date)
+                .findByProductIdAndBrandIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(productId, brandId, searchDate, searchDate)
                 .stream()
                 .findAny()
                 .map(info -> technicalTestMapper.entityToPriceInformationResponse(info))
